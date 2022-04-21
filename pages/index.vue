@@ -4,12 +4,22 @@
     <p>{{ description }}</p>
     <NuxtLink to="/other">
       otherへ
-    </NuxtLink>
+    </NuxtLink><br>
     <validation-observer ref="obs" v-slot="ObserverProps">
       <validation-provider v-slot="ProviderProps" rules="required">
-        <label for="name">お名前</label>
-        <input v-model="name" id="name" type="text" name="名前">
-        <div class="error">{{ ProviderProps.errors[0] }}</div>
+        <div class="form-group">
+          <label for="name" class="d-inline">お名前</label>
+          <input
+            id="name"
+            v-model="name"
+            type="text"
+            name="名前"
+            class="form-control d-inline col-3"
+          >
+          <div class="error">
+            {{ ProviderProps.errors[0] }}
+          </div>
+        </div>
       </validation-provider>
       <button
         type="button"
@@ -33,6 +43,6 @@ export default {
 </script>
 <style>
 .container {
-  padding: 30px;
+  padding: 30px
 }
 </style>
